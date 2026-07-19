@@ -1,0 +1,6 @@
+{
+  "name": "Sejarah Indonesia",
+  "description": "Aplikasi Sejarah Indonesia terlengkap disusun oleh Jundi Abdul Syahid, S.Pd., mencakup sejarah kerajaan nusantara, pahlawan nasional, dan peristiwa penting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
