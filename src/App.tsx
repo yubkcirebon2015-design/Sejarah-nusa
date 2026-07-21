@@ -4,9 +4,10 @@ import KingdomSection from "./components/KingdomSection";
 import HeroSection from "./components/HeroSection";
 import EventSection from "./components/EventSection";
 import BiographySection from "./components/BiographySection";
-import { Award, Flame, Landmark, BookOpen, Clock, Star, ShieldAlert } from "lucide-react";
+import EbookSection from "./components/EbookSection";
+import { Award, Flame, Landmark, BookOpen, Clock, Star, ShieldAlert, Library, BookMarked } from "lucide-react";
 
-type ActiveTab = "kingdoms" | "heroes" | "events" | "biography";
+type ActiveTab = "kingdoms" | "heroes" | "events" | "biography" | "ebook";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>("kingdoms");
@@ -86,6 +87,19 @@ export default function App() {
           </button>
 
           <button
+            id="tab-ebook"
+            onClick={() => setActiveTab("ebook")}
+            className={`w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
+              activeTab === "ebook"
+                ? "bg-[#d4af37] text-[#02110c] border-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.3)] scale-[1.02]"
+                : "bg-transparent text-[#f2e8cf]/80 border-transparent hover:border-[#d4af37]/30 hover:bg-[#d4af37]/10"
+            }`}
+          >
+            <BookMarked className="w-4 h-4 shrink-0" />
+            <span className="font-serif">E-book Bacaan (100 Bab)</span>
+          </button>
+
+          <button
             id="tab-biography"
             onClick={() => setActiveTab("biography")}
             className={`w-full flex items-center space-x-3 px-4 py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border ${
@@ -141,6 +155,7 @@ export default function App() {
               {activeTab === "kingdoms" && <KingdomSection />}
               {activeTab === "heroes" && <HeroSection />}
               {activeTab === "events" && <EventSection />}
+              {activeTab === "ebook" && <EbookSection />}
               {activeTab === "biography" && <BiographySection />}
             </motion.div>
           </AnimatePresence>
